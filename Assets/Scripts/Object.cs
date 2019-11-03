@@ -30,9 +30,10 @@ public class Object : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (_player.getIsHoldingItem() == false && other.tag == "Player")
         {
             _isCollected = true;
+            _player.setIsHoldingItem(true);
         }
     }
 }

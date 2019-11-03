@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     private float _movementSpeed = 5.0f;
     [SerializeField]
     private int _score = 0;
+    [SerializeField]
+    private bool _isHoldingItem = false;
 
     private UIManager _uiManager = null;
 
@@ -31,6 +33,9 @@ public class Player : MonoBehaviour
 
     void CalculateMovement()
     {
+        //float horizontalInput = Input.GetAxis("C1LHorizontal");
+        //float verticalInput = Input.GetAxis("C1LVertical");
+
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -43,5 +48,15 @@ public class Player : MonoBehaviour
     {
         _score += points;
         _uiManager.UpdateScore(_score);
+    }
+
+    public void setIsHoldingItem(bool holding)
+    {
+        _isHoldingItem = holding;
+    }
+
+    public bool getIsHoldingItem()
+    {
+        return _isHoldingItem;
     }
 }

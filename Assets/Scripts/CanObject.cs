@@ -28,6 +28,7 @@ public class CanObject : MonoBehaviour
                 }
 
                 Destroy(this.gameObject);
+                _player.setIsHoldingItem(false);
                 break;
 
 
@@ -39,6 +40,7 @@ public class CanObject : MonoBehaviour
                 }
 
                 Destroy(this.gameObject);
+                _player.setIsHoldingItem(false);
                 break;
 
 
@@ -50,6 +52,7 @@ public class CanObject : MonoBehaviour
                 }
 
                 Destroy(this.gameObject);
+                _player.setIsHoldingItem(false);
                 break;
 
 
@@ -61,6 +64,7 @@ public class CanObject : MonoBehaviour
                 }
 
                 Destroy(this.gameObject);
+                _player.setIsHoldingItem(false);
                 break;
 
 
