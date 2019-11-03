@@ -25,6 +25,7 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the player is carrying the object
         if (_isCollected && !Input.GetButtonDown("Throw"))
         {
             Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 1.0f, _player.transform.position.z + 1.0f);
@@ -33,6 +34,7 @@ public class Object : MonoBehaviour
             hasBeenThrown = false;
         }
 
+        // If the player throws the object
         else if (_isCollected && Input.GetButtonDown("Throw"))
         {
             _direction = transform.forward + (transform.rotation * new Vector3(0, 20, 10));
@@ -52,7 +54,7 @@ public class Object : MonoBehaviour
             _player.SetIsHoldingItem(true);
         }
 
-        else if (other.tag == "Floor")
+        if (other.tag == "Floor")
         {
             _isCollected = false;
             _player.SetIsHoldingItem(false);
