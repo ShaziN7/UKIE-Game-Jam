@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class Object : MonoBehaviour
 {
-    public GameObject player = null;
+    private Player _player = null;
     private bool _isCollected = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if (player == null)
+        if (_player == null)
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPosition = new Vector3(player.transform.position.x, player.transform.position.y + 1.0f, player.transform.position.z + 1.0f);
+        Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 1.0f, _player.transform.position.z + 1.0f);
        
         if (_isCollected)
         {
@@ -37,8 +37,12 @@ public class Object : MonoBehaviour
 
         else if (other.tag == "Bin")
         {
-            // add points to player's score
-            
+            // If player is alive, add to score
+            if (_player != null)
+            {
+                _player.UpdateScore(10);
+            }
+
             Destroy(this.gameObject);
         }
     }
