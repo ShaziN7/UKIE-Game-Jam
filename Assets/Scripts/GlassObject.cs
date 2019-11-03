@@ -18,7 +18,7 @@ public class GlassObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (GetComponent<Object>().hasObjectBeenThrown())
+        if (GetComponent<Object>().HasObjectBeenThrown())
         {
             switch (other.tag)
             {

@@ -10,7 +10,11 @@ public class Object : MonoBehaviour
     [SerializeField]
     private float _speed = 20.0f;
     [SerializeField]
-    private bool hasBeenThrown = false;
+    private bool _hasBeenThrown = false;
+    [SerializeField]
+    private float _timer = 0.0f;
+    [SerializeField]
+    private bool _hasSpawned = false;
 
 
     // Start is called before the first frame update
@@ -31,7 +35,8 @@ public class Object : MonoBehaviour
             Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 1.0f, _player.transform.position.z + 1.0f);
 
             transform.position = playerPosition;
-            hasBeenThrown = false;
+            _hasBeenThrown = false;
+            _hasSpawned = false;
         }
 
         // If the player throws the object
@@ -42,7 +47,13 @@ public class Object : MonoBehaviour
             //GetComponent<Rigidbody>().AddForce(_player.transform.forward * _throwForce);
             GetComponent<Rigidbody>().velocity = _direction * _speed * Time.deltaTime;
             _isCollected = false;
-            hasBeenThrown = true;
+            _hasBeenThrown = true;
+            _hasSpawned = false;
+        }
+
+        if (_hasSpawned)
+        {
+            Timer();
         }
     }
 
@@ -59,12 +70,28 @@ public class Object : MonoBehaviour
             _isCollected = false;
             _player.SetIsHoldingItem(false);
             GetComponent<Rigidbody>().velocity = Vector3.zero;
-            hasBeenThrown = false;
+            _hasBeenThrown = false;
         }
     }
 
-    public bool hasObjectBeenThrown()
+    public bool HasObjectBeenThrown()
     {
-        return hasBeenThrown;
+        return _hasBeenThrown;
+    }
+
+    public void Timer()
+    {
+        _timer += Time.deltaTime;
+
+        if (_timer >= 10.0f)
+        {
+            _player.UpdateScore(-2);
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void SetHasSpawned(bool spawned)
+    {
+        _hasSpawned = spawned;
     }
 }

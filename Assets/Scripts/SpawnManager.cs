@@ -44,6 +44,7 @@ public class SpawnManager : MonoBehaviour
                     Vector3 positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
                     GameObject canObj = (GameObject)Instantiate(_canObjectPrefab, positionToSpawn, transform.rotation);
                     canObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    canObj.GetComponent<Object>().SetHasSpawned(true);
                     yield return new WaitForSeconds(5.0f);
                     break;
 
@@ -52,6 +53,7 @@ public class SpawnManager : MonoBehaviour
                     positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
                     GameObject glassObj = (GameObject)Instantiate(_glassObjectPrefab, positionToSpawn, transform.rotation);
                     glassObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    glassObj.GetComponent<Object>().SetHasSpawned(true);
                     yield return new WaitForSeconds(5.0f);
                     break;
 
@@ -60,6 +62,7 @@ public class SpawnManager : MonoBehaviour
                     positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
                     GameObject paperObj = (GameObject)Instantiate(_paperObjectPrefab, positionToSpawn, transform.rotation);
                     paperObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    paperObj.GetComponent<Object>().SetHasSpawned(true);
                     yield return new WaitForSeconds(5.0f);
                     break;
 
@@ -68,6 +71,7 @@ public class SpawnManager : MonoBehaviour
                     positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
                     GameObject plasticObj = (GameObject)Instantiate(_plasticObjectPrefab, positionToSpawn, transform.rotation);
                     plasticObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    plasticObj.GetComponent<Object>().SetHasSpawned(true);
                     yield return new WaitForSeconds(5.0f);
                     break;
             }
