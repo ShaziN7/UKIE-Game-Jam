@@ -14,12 +14,21 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private float _timeLeft = 60.0f;
 
+    private GameManager _gameManager;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _scoreText.text = "Score: " + 0;
         _timerText.text = "Time Left: ";
+
+        _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+
+        if (_gameManager == null)
+        {
+            Debug.LogError("Game Manager is NULL.");
+        } 
     }
 
     private void Update()
@@ -45,5 +54,12 @@ public class UIManager : MonoBehaviour
         {
             // End game
         }
+    }
+
+    public void GameOverSequence()
+    {
+        // Do game over things here
+
+        _gameManager.GameOver();
     }
 }

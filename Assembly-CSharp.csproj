@@ -64,7 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CanObject.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GlassObject.cs" />
+    <Compile Include="Assets\Scripts\Main_Menu\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Object.cs" />
     <Compile Include="Assets\Scripts\PaperObject.cs" />
     <Compile Include="Assets\Scripts\PlasticObject.cs" />
