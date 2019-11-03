@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Can_Bin
       objectReference: {fileID: 0}
+    - target: {fileID: 8023321575801625529, guid: 4d51dadb9dabe874bbf8bf0fb48f2860,
+        type: 3}
+      propertyPath: m_TagString
+      value: Can
+      objectReference: {fileID: 0}
     - target: {fileID: 3512368943708306506, guid: 4d51dadb9dabe874bbf8bf0fb48f2860,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,5 +77,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0bc2dd18c1ec3084888dad3e9e903782, type: 2}
+    - target: {fileID: 85263721711050724, guid: 4d51dadb9dabe874bbf8bf0fb48f2860,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d51dadb9dabe874bbf8bf0fb48f2860, type: 3}

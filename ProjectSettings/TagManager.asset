@@ -8,6 +8,9 @@ TagManager:
   - Glass
   - Can
   - Paper
+  - Floor
+  - Object
+  - Bin
   layers:
   - Default
   - TransparentFX

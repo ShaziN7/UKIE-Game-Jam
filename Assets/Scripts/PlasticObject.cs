@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlasticObject : MonoBehaviour
 {
     private Player _player = null;
+    private bool hasBeenThrown = false;
 
 
     // Start is called before the first frame update
@@ -18,59 +19,63 @@ public class PlasticObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch (other.tag)
+        if (GetComponent<Object>().hasObjectBeenThrown())
         {
-            case "Glass":
+            switch (other.tag)
+            {
+                case "Glass":
 
-                if (_player != null)
-                {
-                    _player.UpdateScore(-5);
-                }
+                    if (_player != null)
+                    {
+                        _player.UpdateScore(-5);
+                    }
 
-                Destroy(this.gameObject);
-                _player.setIsHoldingItem(false);
-                break;
-
-
-            case "Plastic":
-
-                if (_player != null)
-                {
-                    _player.UpdateScore(10);
-                }
-
-                Destroy(this.gameObject);
-                _player.setIsHoldingItem(false);
-                break;
+                    Destroy(this.gameObject);
+                    _player.SetIsHoldingItem(false);
+                    break;
 
 
-            case "Can":
+                case "Plastic":
 
-                if (_player != null)
-                {
-                    _player.UpdateScore(-5);
-                }
+                    if (_player != null)
+                    {
+                        _player.UpdateScore(10);
+                    }
 
-                Destroy(this.gameObject);
-                _player.setIsHoldingItem(false);
-                break;
-
-
-            case "Paper":
-
-                if (_player != null)
-                {
-                    _player.UpdateScore(-5);
-                }
-
-                Destroy(this.gameObject);
-                _player.setIsHoldingItem(false);
-                break;
+                    Destroy(this.gameObject);
+                    _player.SetIsHoldingItem(false);
+                    break;
 
 
-            default:
-                Debug.LogError("Error in Switch Statement");
-                break;
+                case "Can":
+
+                    if (_player != null)
+                    {
+                        _player.UpdateScore(-5);
+                    }
+
+                    Destroy(this.gameObject);
+                    _player.SetIsHoldingItem(false);
+                    break;
+
+
+                case "Paper":
+
+                    if (_player != null)
+                    {
+                        _player.UpdateScore(-5);
+                    }
+
+                    Destroy(this.gameObject);
+                    _player.SetIsHoldingItem(false);
+                    break;
+
+
+                default:
+                    break;
+            }
         }
+
+        
     }
 }

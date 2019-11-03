@@ -10,8 +10,11 @@ public class Player : MonoBehaviour
     private int _score = 0;
     [SerializeField]
     private bool _isHoldingItem = false;
+    [SerializeField]
+    private string _controller;
 
     private UIManager _uiManager = null;
+    private Vector3 _direction = Vector3.zero;
 
 
     // Start is called before the first frame update
@@ -50,12 +53,12 @@ public class Player : MonoBehaviour
         _uiManager.UpdateScore(_score);
     }
 
-    public void setIsHoldingItem(bool holding)
+    public void SetIsHoldingItem(bool holding)
     {
         _isHoldingItem = holding;
     }
 
-    public bool getIsHoldingItem()
+    public bool GetIsHoldingItem()
     {
         return _isHoldingItem;
     }
