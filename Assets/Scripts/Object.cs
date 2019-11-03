@@ -20,10 +20,10 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 1.0f, _player.transform.position.z + 1.0f);
-       
         if (_isCollected)
         {
+            Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 1.0f, _player.transform.position.z + 1.0f);
+
             transform.position = playerPosition;
         }
     }
@@ -33,17 +33,6 @@ public class Object : MonoBehaviour
         if (other.tag == "Player")
         {
             _isCollected = true;
-        }
-
-        else if (other.tag == "Bin")
-        {
-            // If player is alive, add to score
-            if (_player != null)
-            {
-                _player.UpdateScore(10);
-            }
-
-            Destroy(this.gameObject);
         }
     }
 }

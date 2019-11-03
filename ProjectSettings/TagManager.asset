@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Object
-  - Bin
+  - Plastic
+  - Glass
+  - Can
+  - Paper
   layers:
   - Default
   - TransparentFX
