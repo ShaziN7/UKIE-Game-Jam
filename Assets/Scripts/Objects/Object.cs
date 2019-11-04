@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Object : MonoBehaviour
 {
-    private Player _player = null; // Reference to player
+    private Player _player1 = null; // Reference to player 1
+    private Player _player2 = null; // Reference to player 2
     private bool _isCollected = false; // If object has been collected
+    private int _collectedBy = 0;
     private Vector3 _direction; // Which direction to throw object
     [SerializeField]
     private float _speed = 20.0f; // Speed to throw object
@@ -19,9 +21,14 @@ public class Object : MonoBehaviour
     void Start()
     {
         // Make sure player has been referenced
-        if (_player == null)
+        if (_player1 == null)
         {
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            _player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player>();
+        }
+
+        if (_player2 == null)
+        {
+            _player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<Player>();
         }
     }
 
@@ -29,16 +36,22 @@ public class Object : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetButtonDown("P1Throw"))
+        //{
+        //    Debug.LogError("throw pressed");
+        //}
+
         // If the player is carrying the object
-        if (_isCollected && !Input.GetButtonDown("Throw"))
+        if (_isCollected && (!Input.GetButtonDown("P1Throw") || !Input.GetButtonDown("P2Throw")))
         {
-            CarryObject();
+            CarryObject(_collectedBy);
         }
 
         // If the player throws the object
-        else if (_isCollected && Input.GetButtonDown("Throw"))
+        if (_isCollected && Input.GetButtonDown("P1Throw"))
         {
             ThrowObject();
+            Debug.LogError("Throw");
         }
 
         // If the object hasn't been picked up
@@ -51,11 +64,20 @@ public class Object : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Player picks up the item
-        if (_player.GetIsHoldingItem() == false && other.tag == "Player")
+        // Player 1 picks up the item
+        if (_player1.GetIsHoldingItem() == false && other.tag == "Player1")
         {
             _isCollected = true;
-            _player.SetIsHoldingItem(true);
+            _collectedBy = 1;
+            _player1.SetIsHoldingItem(true);
+        }
+
+        // Player 2 picks up the item
+        else if (_player2.GetIsHoldingItem() == false && other.tag == "Player2")
+        {
+            _isCollected = true;
+            _collectedBy = 2;
+            _player2.SetIsHoldingItem(true);
         }
 
         // Object is on the floor
@@ -63,7 +85,8 @@ public class Object : MonoBehaviour
         {
             if (_hasBeenThrown)
             {
-                _player.SetIsHoldingItem(false);
+                _player1.SetIsHoldingItem(false);
+                _player2.SetIsHoldingItem(false);
             }
 
             _isCollected = false;
@@ -78,11 +101,20 @@ public class Object : MonoBehaviour
 
 
     // Set the position of the object to the player
-    public void CarryObject()
+    public void CarryObject(int player)
     {
-        Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 1.0f, _player.transform.position.z + 1.0f);
+        if (player == 1)
+        {
+            Vector3 player1Position = new Vector3(_player1.transform.position.x, _player1.transform.position.y + 1.0f, _player1.transform.position.z + 1.0f);
+            transform.position = player1Position;
+        }
 
-        transform.position = playerPosition;
+        else if (player == 2)
+        {
+            Vector3 player2Position = new Vector3(_player2.transform.position.x, _player2.transform.position.y + 1.0f, _player2.transform.position.z + 1.0f);
+            transform.position = player2Position;
+        }
+        
         _hasBeenThrown = false;
         _atSpawn = false;
     }
@@ -98,6 +130,8 @@ public class Object : MonoBehaviour
         _isCollected = false;
         _hasBeenThrown = true;
         _atSpawn = false;
+
+        Debug.Log("Throw");
     }
 
 
@@ -107,7 +141,7 @@ public class Object : MonoBehaviour
 
         if (_timer >= 10.0f)
         {
-            _player.UpdateScore(-2);
+            _player1.UpdateScore(-2);
             Destroy(this.gameObject);
         }
     }

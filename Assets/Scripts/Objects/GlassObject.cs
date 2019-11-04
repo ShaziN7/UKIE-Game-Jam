@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class GlassObject : MonoBehaviour
 {
-    private Player _player = null; // Reference to player
+    private Player _player1 = null; // Reference to player 1
+    private Player _player2 = null; // Reference to player 2
 
 
     // Start is called before the first frame update
     void Start()
     {
         // Make sure player has been referenced
-        if (_player == null)
+        if (_player1 == null)
         {
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            _player1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player>();
+        }
+
+        if (_player2 == null)
+        {
+            _player2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<Player>();
         }
     }
 
@@ -28,52 +34,52 @@ public class GlassObject : MonoBehaviour
                 // If collided with Glass Bin, increase points
                 case "Glass":
 
-                    if (_player != null)
+                    if (_player1 != null)
                     {
-                        _player.UpdateScore(10);
+                        _player1.UpdateScore(10);
                     }
 
                     Destroy(this.gameObject);
-                    _player.SetIsHoldingItem(false);
+                    _player1.SetIsHoldingItem(false);
                     break;
 
 
                 // If collided with Glass Plastic, decrease points
                 case "Plastic":
 
-                    if (_player != null)
+                    if (_player1 != null)
                     {
-                        _player.UpdateScore(-5);
+                        _player1.UpdateScore(-5);
                     }
 
                     Destroy(this.gameObject);
-                    _player.SetIsHoldingItem(false);
+                    _player1.SetIsHoldingItem(false);
                     break;
 
 
                 // If collided with Can Bin, decrease points
                 case "Can":
 
-                    if (_player != null)
+                    if (_player1 != null)
                     {
-                        _player.UpdateScore(-5);
+                        _player1.UpdateScore(-5);
                     }
 
                     Destroy(this.gameObject);
-                    _player.SetIsHoldingItem(false);
+                    _player1.SetIsHoldingItem(false);
                     break;
 
 
                 // If collided with Paper Bin, decrease points
                 case "Paper":
 
-                    if (_player != null)
+                    if (_player1 != null)
                     {
-                        _player.UpdateScore(-5);
+                        _player1.UpdateScore(-5);
                     }
 
                     Destroy(this.gameObject);
-                    _player.SetIsHoldingItem(false);
+                    _player1.SetIsHoldingItem(false);
                     break;
 
 

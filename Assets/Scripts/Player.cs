@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private bool _isHoldingItem = false;
     [SerializeField]
     private string _controller;
+    [SerializeField]
+    private int _playerNumber;
 
     private UIManager _uiManager = null;
 
@@ -39,18 +41,40 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CalculateMovement();
+        if (_playerNumber == 1)
+        {
+            CalculatePlayer1Movement();
+        }
+
+        else if (_playerNumber == 2)
+        {
+            CalculatePlayer2Movement();
+        }
+
         //CalculateMovementCC(); // Character controller - not colliding atm
     }
 
     // Calculate player movement
-    void CalculateMovement()
+    void CalculatePlayer1Movement()
     {
         //float horizontalInput = Input.GetAxis("C1LHorizontal");
         //float verticalInput = Input.GetAxis("C1LVertical");
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("P1Horizontal");
+        float verticalInput = Input.GetAxis("P1Vertical");
+
+        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
+
+        transform.Translate(direction * _movementSpeed * Time.deltaTime);
+    }
+
+    void CalculatePlayer2Movement()
+    {
+        //float horizontalInput = Input.GetAxis("C1LHorizontal");
+        //float verticalInput = Input.GetAxis("C1LVertical");
+
+        float horizontalInput = Input.GetAxis("P2Horizontal");
+        float verticalInput = Input.GetAxis("P2Vertical");
 
         Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
 
@@ -91,5 +115,10 @@ public class Player : MonoBehaviour
     public bool GetIsHoldingItem()
     {
         return _isHoldingItem;
+    }
+
+    public int GetPlayerNumber()
+    {
+        return _playerNumber;
     }
 }
