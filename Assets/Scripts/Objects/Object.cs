@@ -50,8 +50,8 @@ public class Object : MonoBehaviour
         // If the player throws the object
         if (_isCollected && Input.GetButtonDown("P1Throw"))
         {
-            ThrowObject();
-            Debug.LogError("Throw");
+            //ThrowObject();
+            _player1.ThrowObject();
         }
 
         // If the object hasn't been picked up
@@ -121,15 +121,15 @@ public class Object : MonoBehaviour
 
 
     // Throw the object
-    public void ThrowObject()
+    public void ThrowObject(Object obj)
     {
-        _direction = transform.forward + (transform.rotation * new Vector3(0, 20, 20));
+        obj._direction = transform.forward + (transform.rotation * new Vector3(0, 20, 20));
 
         //GetComponent<Rigidbody>().AddForce(_player.transform.forward * _throwForce);
-        GetComponent<Rigidbody>().velocity = _direction * _speed * Time.deltaTime;
-        _isCollected = false;
-        _hasBeenThrown = true;
-        _atSpawn = false;
+        obj.GetComponent<Rigidbody>().velocity = _direction * _speed * Time.deltaTime;
+        obj._isCollected = false;
+        obj._hasBeenThrown = true;
+        obj._atSpawn = false;
 
         Debug.Log("Throw");
     }

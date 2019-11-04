@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private int _playerNumber;
 
     private UIManager _uiManager = null;
+    private Object _objectHeld;
 
     private Vector3 _direction = Vector3.zero;
 
@@ -120,5 +121,19 @@ public class Player : MonoBehaviour
     public int GetPlayerNumber()
     {
         return _playerNumber;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Object")
+        {
+            _objectHeld = other.GetComponent<Object>();
+        }
+    }
+
+
+        public void ThrowObject()
+    {
+        _objectHeld.ThrowObject(_objectHeld);
     }
 }
