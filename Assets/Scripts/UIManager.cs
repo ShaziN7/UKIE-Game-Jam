@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     [SerializeField]
     private Text _scoreText;
     [SerializeField]
@@ -14,7 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private float _timeLeft = 60.0f;
 
-    private GameManager _gameManager;
+    private GameManager _gameManager; // Reference to the Game Manager
 
 
     // Start is called before the first frame update
@@ -28,18 +27,21 @@ public class UIManager : MonoBehaviour
         if (_gameManager == null)
         {
             Debug.LogError("Game Manager is NULL.");
-        } 
+        }
     }
+
 
     private void Update()
     {
         UpdateTimer();
     }
 
+
     public void UpdateScore(int playerScore)
     {
         _scoreText.text = "Score: " + playerScore;
     }
+
 
     public void UpdateTimer()
     {

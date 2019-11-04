@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Restart"))
         {
-            SceneManager.LoadScene(1); // Current level
+            SceneManager.LoadScene(1); // Restarts current level
         }
     }
 

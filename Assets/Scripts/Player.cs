@@ -8,17 +8,19 @@ public class Player : MonoBehaviour
     private float _movementSpeed = 5.0f;
     [SerializeField]
     private int _score = 0;
-    [SerializeField]
     private bool _isHoldingItem = false;
     [SerializeField]
     private string _controller;
 
     private UIManager _uiManager = null;
+
     private Vector3 _direction = Vector3.zero;
 
+    // Character controller stuff
     private CharacterController _characterController;
     private float _gravity = Physics.gravity.y;
     private Vector3 _velocity;
+
 
 
     // Start is called before the first frame update
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
         //CalculateMovementCC(); // Character controller - not colliding atm
     }
 
+    // Calculate player movement
     void CalculateMovement()
     {
         //float horizontalInput = Input.GetAxis("C1LHorizontal");
@@ -73,6 +76,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Updates player score
     public void UpdateScore(int points)
     {
         _score += points;
