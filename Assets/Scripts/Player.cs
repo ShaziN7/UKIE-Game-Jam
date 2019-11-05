@@ -16,11 +16,6 @@ public class Player : MonoBehaviour
 
     private Vector3 _direction = Vector3.zero;
 
-    // Character controller stuff
-    private CharacterController _characterController;
-    private float _gravity = Physics.gravity.y;
-    private Vector3 _velocity;
-
 
 
     // Start is called before the first frame update
@@ -32,15 +27,12 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("The UI Manager is NULL");
         }
-
-        _characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         CalculateMovement();
-        //CalculateMovementCC(); // Character controller - not colliding atm
     }
 
     // Calculate player movement
@@ -57,24 +49,6 @@ public class Player : MonoBehaviour
         transform.Translate(direction * _movementSpeed * Time.deltaTime);
     }
 
-    void CalculateMovementCC()
-    {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        _characterController.Move(move * _movementSpeed * Time.deltaTime);
-
-        if (move != Vector3.zero)
-        {
-            transform.forward = move;
-        }
-
-        _velocity.y += _gravity * Time.deltaTime;
-        _characterController.Move(_velocity * Time.deltaTime);
-
-        if (_characterController.isGrounded)
-        {
-            _velocity.y = 0.0f;
-        }
-    }
 
     // Updates player score
     public void UpdateScore(int points)

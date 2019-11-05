@@ -21,8 +21,7 @@ public class CanObject : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Only check collision with bin if object has been thrown
-        if (GetComponent<Object>().HasObjectBeenThrown())
-        {
+        
             switch (other.tag)
             {
                 // If collided with Glass Bin, decrease points
@@ -80,6 +79,6 @@ public class CanObject : MonoBehaviour
                 default:
                     break;
             }
-        }
+        
     }
 }
