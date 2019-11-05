@@ -70,15 +70,16 @@ public class Player : MonoBehaviour
         Vector3 direction = new Vector3(LhorizonalInput, 0, LverticalInput);
 
         transform.Translate(direction * _mSpeed * Time.deltaTime, Space.World);
+        transform.LookAt(transform.position + new Vector3(LhorizonalInput, 0, LverticalInput), Vector3.up);
     }
 
     
     void calculateRotation()
     {
-        float RhorizontalInput = Input.GetAxis(RHorizontal);
-        float RverticalInput = Input.GetAxis(Rvertical);
+        //float RhorizontalInput = Input.GetAxis(RHorizontal);
+        //float RverticalInput = Input.GetAxis(Rvertical);
 
-        transform.LookAt(transform.position + new Vector3(RhorizontalInput, 0, RverticalInput), Vector3.up);
+        //transform.LookAt(transform.position + new Vector3(RhorizontalInput, 0, RverticalInput), Vector3.up);
 
     }
     // Updates player score
