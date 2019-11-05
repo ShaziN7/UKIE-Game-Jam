@@ -13,16 +13,14 @@ public class PlasticObject : MonoBehaviour
         // Make sure player has been referenced
         if (_player == null)
         {
-            _player = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player>();
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        // Only check collision with bin if object has been thrown
-        if (GetComponent<Object>().HasObjectBeenThrown())
-        {
+        
             switch (other.tag)
             {
                 // If collided with Glass Bin, decrease points
@@ -81,5 +79,5 @@ public class PlasticObject : MonoBehaviour
                     break;
             }
         }
-    }
+    
 }

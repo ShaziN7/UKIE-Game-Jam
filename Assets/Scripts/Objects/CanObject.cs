@@ -13,7 +13,7 @@ public class CanObject : MonoBehaviour
         // Make sure player has been referenced
         if (_player == null)
         {
-            _player = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player>();
+            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         }
     }
 
@@ -21,8 +21,7 @@ public class CanObject : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Only check collision with bin if object has been thrown
-        if (GetComponent<Object>().HasObjectBeenThrown())
-        {
+       
             switch (other.tag)
             {
                 // If collided with Glass Bin, decrease points
@@ -81,5 +80,5 @@ public class CanObject : MonoBehaviour
                     break;
             }
         }
-    }
+    
 }

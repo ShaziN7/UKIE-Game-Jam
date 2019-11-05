@@ -16,6 +16,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &1081069635054821683
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6244414180057627074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-45185322429913561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,22 +56,37 @@ PrefabInstance:
     - target: {fileID: 2076946824749777991, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Object
       objectReference: {fileID: 0}
+    - target: {fileID: 4731563681755360977, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: _speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672877716546548452, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114161195943677436, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15c6099057dd7d84fac11812aa987a24, type: 2}
     - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 106.59466
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -125.29874
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 33.690125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
@@ -114,21 +142,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2114161195943677436, guid: a2798b9abc38acf49a5bec98c1a4bc12,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 15c6099057dd7d84fac11812aa987a24, type: 2}
-    - target: {fileID: 6672877716546548452, guid: a2798b9abc38acf49a5bec98c1a4bc12,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4731563681755360977, guid: a2798b9abc38acf49a5bec98c1a4bc12,
-        type: 3}
-      propertyPath: _speed
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6289791566726042494, guid: a2798b9abc38acf49a5bec98c1a4bc12, type: 3}
