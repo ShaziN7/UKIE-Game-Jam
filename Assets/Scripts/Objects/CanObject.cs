@@ -26,91 +26,85 @@ public class CanObject : Object
 
     private void OnTriggerEnter(Collider other)
     {
-        // Only check collision with bin if object has been thrown
-        if (GetComponent<Object>().HasObjectBeenThrown())
+
+        switch (other.tag)
         {
-            switch (other.tag)
-            {
-                // If collided with Glass Bin, decrease points
-                case "Glass":
-
-                    if (GetComponent<Object>()._playerNumber == 1)
-                    {
-                        Destroy(this.gameObject);
-                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
-                        _player1.SetIsHoldingItem(false);
-                    }
-
-                    else if (GetComponent<Object>()._playerNumber == 2)
-                    {
-                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
-                        _player2.SetIsHoldingItem(false);
-                    }
-
-                    Destroy(this.gameObject);
-                    break;
+            // If collided with Glass Bin, decrease points
+            case "Glass":
 
 
-                // If collided with Glass Plastic, decrease points
-                case "Plastic":
+                _player1.UpdateScore(-5, _player1.GetPlayerNumber());
 
-                    if (GetPlayerNumber() == 1)
-                    {
-                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
-                        _player1.SetIsHoldingItem(false);
-                    }
+                //if (GetComponent<Object>()._playerNumber == 2)
+                //{
+                //    _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                //    _player2.SetIsHoldingItem(false);
+                //}
 
-                    else if (GetPlayerNumber() == 2)
-                    {
-                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
-                        _player2.SetIsHoldingItem(false);
-                    }
-
-                    Destroy(this.gameObject);
-                    break;
+                Destroy(this.gameObject);
+                break;
 
 
-                // If collided with Can Bin, increase points
-                case "Can":
+            // If collided with Glass Plastic, decrease points
+            case "Plastic":
 
-                    if (GetPlayerNumber() == 1)
-                    {
-                        _player1.UpdateScore(10, _player1.GetPlayerNumber());
-                        _player1.SetIsHoldingItem(false);
-                    }
+                if (GetPlayerNumber() == 1)
+                {
+                    _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                    _player1.SetIsHoldingItem(false);
+                }
 
-                    else if (GetPlayerNumber() == 2)
-                    {
-                        _player2.UpdateScore(10, _player2.GetPlayerNumber());
-                        _player2.SetIsHoldingItem(false);
-                    }
+                else if (GetPlayerNumber() == 2)
+                {
+                    _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                    _player2.SetIsHoldingItem(false);
+                }
 
-                    Destroy(this.gameObject);
-                    break;
-
-
-                // If collided with Paper Bin, decrease points
-                case "Paper":
-
-                    if (GetPlayerNumber() == 1)
-                    {
-                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
-                        _player1.SetIsHoldingItem(false);
-                    }
-
-                    else if (GetPlayerNumber() == 2)
-                    {
-                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
-                        _player2.SetIsHoldingItem(false);
-                    }
-
-                    Destroy(this.gameObject);
-                    break;
+                Destroy(this.gameObject);
+                break;
 
 
-                default:
-                    break;
-            }
+            // If collided with Can Bin, increase points
+            case "Can":
+
+                if (GetPlayerNumber() == 1)
+                {
+                    _player1.UpdateScore(10, _player1.GetPlayerNumber());
+                    _player1.SetIsHoldingItem(false);
+                }
+
+                else if (GetPlayerNumber() == 2)
+                {
+                    _player2.UpdateScore(10, _player2.GetPlayerNumber());
+                    _player2.SetIsHoldingItem(false);
+                }
+
+                Destroy(this.gameObject);
+                break;
+
+
+            // If collided with Paper Bin, decrease points
+            case "Paper":
+
+                if (GetPlayerNumber() == 1)
+                {
+                    _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                    _player1.SetIsHoldingItem(false);
+                }
+
+                else if (GetPlayerNumber() == 2)
+                {
+                    _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                    _player2.SetIsHoldingItem(false);
+                }
+
+                Destroy(this.gameObject);
+                break;
+
+
+            default:
+                break;
+
         }
     }
 }

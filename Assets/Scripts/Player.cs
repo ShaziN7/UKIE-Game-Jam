@@ -130,10 +130,4 @@ public class Player : MonoBehaviour
             _objectHeld = other.GetComponent<Object>();
         }
     }
-
-
-        public void ThrowObject()
-    {
-        _objectHeld.ThrowObject(_objectHeld);
-    }
 }

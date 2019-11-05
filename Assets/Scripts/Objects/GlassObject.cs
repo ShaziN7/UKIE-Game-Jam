@@ -29,7 +29,7 @@ public class GlassObject : Object
     private void OnTriggerEnter(Collider other)
     {
         // Only check collision with bin if object has been thrown
-        if (GetComponent<Object>().HasObjectBeenThrown())
+        //if (GetComponent<Object>().HasObjectBeenThrown())
         {
             switch (other.tag)
             {
