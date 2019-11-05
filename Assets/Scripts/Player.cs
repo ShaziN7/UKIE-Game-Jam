@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float _movementSpeed = 10.0f;
     [SerializeField]
     private int _score = 0;
+
     private bool _isHoldingItem = false;
    
     private UIManager _uiManager = null;
@@ -55,20 +56,20 @@ public class Player : MonoBehaviour
     // Calculate player movement
     void CalculateMovement()
     {
-        //float LhorizonalInput = Input.GetAxis(LHorizontal);
-        //float LverticalInput = Input.GetAxis(LVertical);
+        float LhorizonalInput = Input.GetAxis(LHorizontal);
+        float LverticalInput = Input.GetAxis(LVertical);
 
-        //Vector3 direction = new Vector3(LhorizonalInput, 0, LverticalInput);
+        Vector3 direction = new Vector3(LhorizonalInput, 0, LverticalInput);
 
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        //float horizontalInput = Input.GetAxis("Horizontal");
+        //float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
+        //Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
 
         transform.Translate(direction * _movementSpeed * Time.deltaTime, Space.World);
-        //transform.LookAt(transform.position + new Vector3(LhorizonalInput, 0, LverticalInput), Vector3.up);
-        transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput), Vector3.up);
+        transform.LookAt(transform.position + new Vector3(LhorizonalInput, 0, LverticalInput), Vector3.up);
+        //transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput), Vector3.up);
     }
 
     

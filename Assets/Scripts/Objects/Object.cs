@@ -56,7 +56,7 @@ public class Object : MonoBehaviour
         else if (other.tag == "Floor")
         {
             
-            _player.SetIsHoldingItem(false);
+            //_player.SetIsHoldingItem(false);
 
             _isCollected = false;
         }
