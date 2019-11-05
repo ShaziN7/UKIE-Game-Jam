@@ -13,13 +13,9 @@ public class Player : MonoBehaviour
     private string RHorizontal = "RHorizontal";
     [SerializeField]
     private string Rvertical = "RVertical";
-    [SerializeField]
-    private string Controller = "0";
-    [SerializeField]
-    public int _playerNumber;
 
     [SerializeField]
-    private float _mSpeed = 10.0f;
+    private float _movementSpeed = 10.0f;
     [SerializeField]
     private int _score = 0;
     private bool _isHoldingItem = false;
@@ -33,14 +29,9 @@ public class Player : MonoBehaviour
     void Start()
     {
 
-        if (gameObject.tag == "Player1" )
+        if (gameObject.tag == "Player" )
         {
             this.transform.position = new Vector3(-11.0f, 2.0f, -13.0f);
-        }
-
-        if (gameObject.tag == "Player2")
-        {
-            this.transform.position = new Vector3(9.0f, 2.0f, -13.0f);
         }
 
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
@@ -64,13 +55,20 @@ public class Player : MonoBehaviour
     // Calculate player movement
     void CalculateMovement()
     {
-        float LhorizonalInput = Input.GetAxis(LHorizontal);
-        float LverticalInput = Input.GetAxis(LVertical);
+        //float LhorizonalInput = Input.GetAxis(LHorizontal);
+        //float LverticalInput = Input.GetAxis(LVertical);
 
-        Vector3 direction = new Vector3(LhorizonalInput, 0, LverticalInput);
+        //Vector3 direction = new Vector3(LhorizonalInput, 0, LverticalInput);
 
-        transform.Translate(direction * _mSpeed * Time.deltaTime, Space.World);
-        transform.LookAt(transform.position + new Vector3(LhorizonalInput, 0, LverticalInput), Vector3.up);
+
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
+
+        transform.Translate(direction * _movementSpeed * Time.deltaTime, Space.World);
+        //transform.LookAt(transform.position + new Vector3(LhorizonalInput, 0, LverticalInput), Vector3.up);
+        transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput), Vector3.up);
     }
 
     

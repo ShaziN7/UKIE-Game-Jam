@@ -14,8 +14,6 @@ public class Object : MonoBehaviour
     private float _timer = 0.0f; // Timer for object lying on floor
     private bool _atSpawn = false; // If object is still at spawn
 
-    private Vector3 direction;
-
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +21,7 @@ public class Object : MonoBehaviour
         // Make sure player has been referenced
         if (_player == null)
         {
-            _player = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player>();
+            _player = GameObject.Find("Player").GetComponent<Player>();
         }
     }
 
@@ -32,15 +30,9 @@ public class Object : MonoBehaviour
     void Update()
     {
         // If the player is carrying the object
-        if (_isCollected && !Input.GetButtonDown("Throw"))
+        if (_isCollected)
         {
             CarryObject();
-        }
-
-        // If the player throws the object
-        else if (_isCollected && Input.GetButtonDown("Throw"))
-        {
-            ThrowObject();
         }
 
         // If the object hasn't been picked up
@@ -54,7 +46,7 @@ public class Object : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Player picks up the item
-        if (_player.GetIsHoldingItem() == false && other.tag == "Player1")
+        if (_player.GetIsHoldingItem() == false && other.tag == "Player")
         {
             _isCollected = true;
             _player.SetIsHoldingItem(true);
@@ -63,18 +55,10 @@ public class Object : MonoBehaviour
         // Object is on the floor
         else if (other.tag == "Floor")
         {
-            if (_hasBeenThrown)
-            {
-                _player.SetIsHoldingItem(false);
-            }
+            
+            _player.SetIsHoldingItem(false);
 
             _isCollected = false;
-            _hasBeenThrown = false;
-
-            // Reset physics stuff
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-            _direction = Vector3.zero;
         }
     }
 
@@ -82,22 +66,9 @@ public class Object : MonoBehaviour
     // Set the position of the object to the player
     public void CarryObject()
     {
-        Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 2.0f, _player.transform.position.z);
+        Vector3 playerPosition = new Vector3(_player.transform.position.x, _player.transform.position.y + 1.0f, _player.transform.position.z + 1.0f);
 
         transform.position = playerPosition;
-        _hasBeenThrown = false;
-        _atSpawn = false;
-    }
-
-    // Throw the object
-    public void ThrowObject()
-    {
-        _direction = transform.forward + (transform.rotation * new Vector3(0, 90, 80));
-
-        //GetComponent<Rigidbody>().AddForce(_player.transform.forward * _throwForce);
-        GetComponent<Rigidbody>().velocity = _direction * _speed * Time.deltaTime;
-        _isCollected = false;
-        _hasBeenThrown = true;
         _atSpawn = false;
     }
 
@@ -106,7 +77,7 @@ public class Object : MonoBehaviour
     {
         _timer += Time.deltaTime;
 
-        if (_timer >= 20.0f)
+        if (_timer >= 10.0f)
         {
             _player.UpdateScore(-2);
             Destroy(this.gameObject);
@@ -114,16 +85,8 @@ public class Object : MonoBehaviour
     }
 
 
-    public bool HasObjectBeenThrown()
-    {
-        return _hasBeenThrown;
-    }
-
-
     public void SetHasSpawned(bool spawned)
     {
         _atSpawn = spawned;
     }
-
-
 }
