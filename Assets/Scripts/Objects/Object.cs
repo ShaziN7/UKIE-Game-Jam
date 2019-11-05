@@ -15,6 +15,8 @@ public class Object : MonoBehaviour
     [SerializeField]
     private float _timer = 0.0f; // Timer for object lying on floor
     private bool _atSpawn = false; // If object is still at spawn
+    [SerializeField]
+    public int _playerNumber = 0;
 
 
     // Start is called before the first frame update
@@ -52,6 +54,11 @@ public class Object : MonoBehaviour
         {
             //ThrowObject();
             _player1.ThrowObject();
+        }
+
+        if (_isCollected && Input.GetButtonDown("P2Throw"))
+        {
+            _player2.ThrowObject();
         }
 
         // If the object hasn't been picked up
@@ -107,12 +114,14 @@ public class Object : MonoBehaviour
         {
             Vector3 player1Position = new Vector3(_player1.transform.position.x, _player1.transform.position.y + 1.0f, _player1.transform.position.z + 1.0f);
             transform.position = player1Position;
+            _playerNumber = _player1.GetPlayerNumber();
         }
 
         else if (player == 2)
         {
             Vector3 player2Position = new Vector3(_player2.transform.position.x, _player2.transform.position.y + 1.0f, _player2.transform.position.z + 1.0f);
             transform.position = player2Position;
+            _playerNumber = _player2.GetPlayerNumber();
         }
         
         _hasBeenThrown = false;
@@ -130,8 +139,6 @@ public class Object : MonoBehaviour
         obj._isCollected = false;
         obj._hasBeenThrown = true;
         obj._atSpawn = false;
-
-        Debug.Log("Throw");
     }
 
 
@@ -141,7 +148,8 @@ public class Object : MonoBehaviour
 
         if (_timer >= 10.0f)
         {
-            _player1.UpdateScore(-2);
+            _player1.UpdateScore(-2, _player1.GetPlayerNumber());
+            _player2.UpdateScore(-2, _player2.GetPlayerNumber());
             Destroy(this.gameObject);
         }
     }
@@ -156,5 +164,10 @@ public class Object : MonoBehaviour
     public void SetHasSpawned(bool spawned)
     {
         _atSpawn = spawned;
+    }
+
+    public int GetPlayerNumber()
+    {
+        return _playerNumber;
     }
 }

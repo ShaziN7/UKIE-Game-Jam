@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    private Text _scoreText;
+    private Text _p1ScoreText;
+    [SerializeField]
+    private Text _p2ScoreText;
     [SerializeField]
     private Text _timerText;
     [SerializeField]
@@ -19,7 +21,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _scoreText.text = "Score: " + 0;
+        _p1ScoreText.text = "Player 1 Score: " + 0;
+        _p2ScoreText.text = "Player 2 Score: " + 0;
         _timerText.text = "Time Left: ";
 
         _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
@@ -37,9 +40,17 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void UpdateScore(int playerScore)
+    public void UpdateScore(int playerScore, int playerNumber)
     {
-        _scoreText.text = "Score: " + playerScore;
+        if (playerNumber == 1)
+        {
+            _p1ScoreText.text = "Score: " + playerScore;
+        }
+
+        else if (playerNumber == 2)
+        {
+            _p2ScoreText.text = "Score: " + playerScore;
+        }
     }
 
 

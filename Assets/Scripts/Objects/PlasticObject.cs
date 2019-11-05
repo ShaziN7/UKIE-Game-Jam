@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlasticObject : MonoBehaviour
+public class PlasticObject : Object
 {
     private Player _player1 = null; // Reference to player 1
     private Player _player2 = null; // Reference to player 2
@@ -34,9 +34,16 @@ public class PlasticObject : MonoBehaviour
                 // If collided with Glass Bin, decrease points
                 case "Glass":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(-5);
+                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);
@@ -47,9 +54,16 @@ public class PlasticObject : MonoBehaviour
                 // If collided with Glass Plastic, increase points
                 case "Plastic":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(10);
+                        _player1.UpdateScore(10, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(10, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);
@@ -60,9 +74,16 @@ public class PlasticObject : MonoBehaviour
                 // If collided with Can Bin, decrease points
                 case "Can":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(-5);
+                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);
@@ -73,9 +94,16 @@ public class PlasticObject : MonoBehaviour
                 // If collided with Paper Bin, decrease points
                 case "Paper":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(-5);
+                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GlassObject : MonoBehaviour
+public class GlassObject : Object
 {
+    // Changed above to Object from MonoBehaviour, do i need these?
+
     private Player _player1 = null; // Reference to player 1
     private Player _player2 = null; // Reference to player 2
 
@@ -34,52 +36,76 @@ public class GlassObject : MonoBehaviour
                 // If collided with Glass Bin, increase points
                 case "Glass":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(10);
+                        _player1.UpdateScore(10, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(10, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);
-                    _player1.SetIsHoldingItem(false);
                     break;
 
 
                 // If collided with Glass Plastic, decrease points
                 case "Plastic":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(-5);
+                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);
-                    _player1.SetIsHoldingItem(false);
                     break;
 
 
                 // If collided with Can Bin, decrease points
                 case "Can":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(-5);
+                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);
-                    _player1.SetIsHoldingItem(false);
                     break;
 
 
                 // If collided with Paper Bin, decrease points
                 case "Paper":
 
-                    if (_player1 != null)
+                    if (GetPlayerNumber() == 1)
                     {
-                        _player1.UpdateScore(-5);
+                        _player1.UpdateScore(-5, _player1.GetPlayerNumber());
+                        _player1.SetIsHoldingItem(false);
+                    }
+
+                    else if (GetPlayerNumber() == 2)
+                    {
+                        _player2.UpdateScore(-5, _player2.GetPlayerNumber());
+                        _player2.SetIsHoldingItem(false);
                     }
 
                     Destroy(this.gameObject);
-                    _player1.SetIsHoldingItem(false);
                     break;
 
 

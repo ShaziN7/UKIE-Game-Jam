@@ -13,6 +13,8 @@ TagManager:
   - Bin
   - Player1
   - Player2
+  - P1
+  - P2
   layers:
   - Default
   - TransparentFX

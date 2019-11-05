@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private string _controller;
     [SerializeField]
-    private int _playerNumber;
+    public int _playerNumber;
 
     private UIManager _uiManager = null;
     private Object _objectHeld;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private CharacterController _characterController;
     private float _gravity = Physics.gravity.y;
     private Vector3 _velocity;
-
+    
 
 
     // Start is called before the first frame update
@@ -102,10 +102,10 @@ public class Player : MonoBehaviour
     }
 
     // Updates player score
-    public void UpdateScore(int points)
+    public void UpdateScore(int points, int playerNumber)
     {
         _score += points;
-        _uiManager.UpdateScore(_score);
+        _uiManager.UpdateScore(_score, playerNumber);
     }
 
     public void SetIsHoldingItem(bool holding)
