@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
         if (gameObject.tag == "Player" )
         {
-            this.transform.position = new Vector3(-11.0f, 2.0f, -13.0f);
+            this.transform.position = new Vector3(0f, 3.2f, 0.0f);
         }
 
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
