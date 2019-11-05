@@ -4,28 +4,45 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
     [SerializeField]
-    private float _movementSpeed = 5.0f;
+    private string LHorizontal = "LHorizontal";
+    [SerializeField]
+    private string LVertical = "LVertical";
+    [SerializeField]
+    private string RHorizontal = "RHorizontal";
+    [SerializeField]
+    private string Rvertical = "RVertical";
+    [SerializeField]
+    private string Controller = "0";
+    [SerializeField]
+    public int _playerNumber;
+
+    [SerializeField]
+    private float _mSpeed = 10.0f;
     [SerializeField]
     private int _score = 0;
     private bool _isHoldingItem = false;
-    [SerializeField]
-    private string _controller;
-
+   
     private UIManager _uiManager = null;
 
-    private Vector3 _direction = Vector3.zero;
+    private Object _objectHeld;
+    private Vector3 direction = Vector3.zero;
 
-    // Character controller stuff
-    private CharacterController _characterController;
-    private float _gravity = Physics.gravity.y;
-    private Vector3 _velocity;
-
-
-
-    // Start is called before the first frame update
+       // Start is called before the first frame update
     void Start()
     {
+
+        if (gameObject.tag == "Player1" )
+        {
+            this.transform.position = new Vector3(-11.0f, 2.0f, -13.0f);
+        }
+
+        if (gameObject.tag == "Player2")
+        {
+            this.transform.position = new Vector3(9.0f, 2.0f, -13.0f);
+        }
+
         _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
         if (_uiManager == null)
@@ -33,49 +50,37 @@ public class Player : MonoBehaviour
             Debug.LogError("The UI Manager is NULL");
         }
 
-        _characterController = GetComponent<CharacterController>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+     
         CalculateMovement();
-        //CalculateMovementCC(); // Character controller - not colliding atm
+        calculateRotation();
     }
 
     // Calculate player movement
     void CalculateMovement()
     {
-        //float horizontalInput = Input.GetAxis("C1LHorizontal");
-        //float verticalInput = Input.GetAxis("C1LVertical");
+        float LhorizonalInput = Input.GetAxis(LHorizontal);
+        float LverticalInput = Input.GetAxis(LVertical);
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(LhorizonalInput, 0, LverticalInput);
 
-        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
-
-        transform.Translate(direction * _movementSpeed * Time.deltaTime);
+        transform.Translate(direction * _mSpeed * Time.deltaTime, Space.World);
     }
 
-    void CalculateMovementCC()
+    
+    void calculateRotation()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        _characterController.Move(move * _movementSpeed * Time.deltaTime);
+        float RhorizontalInput = Input.GetAxis(RHorizontal);
+        float RverticalInput = Input.GetAxis(Rvertical);
 
-        if (move != Vector3.zero)
-        {
-            transform.forward = move;
-        }
+        transform.LookAt(transform.position + new Vector3(RhorizontalInput, 0, RverticalInput), Vector3.up);
 
-        _velocity.y += _gravity * Time.deltaTime;
-        _characterController.Move(_velocity * Time.deltaTime);
-
-        if (_characterController.isGrounded)
-        {
-            _velocity.y = 0.0f;
-        }
     }
-
     // Updates player score
     public void UpdateScore(int points)
     {
@@ -91,5 +96,10 @@ public class Player : MonoBehaviour
     public bool GetIsHoldingItem()
     {
         return _isHoldingItem;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, direction * 50);
     }
 }

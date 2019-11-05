@@ -13,7 +13,7 @@ public class PaperObject : MonoBehaviour
         // Make sure player has been referenced
         if (_player == null)
         {
-            _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            _player = GameObject.FindGameObjectWithTag("Player1").GetComponent<Player>();
         }
     }
 

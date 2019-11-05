@@ -13,13 +13,61 @@ InputManager:
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
-    gravity: 0
+    gravity: 3
     dead: 0.19
     sensitivity: 1
     snap: 1
     invert: 0
     type: 2
     axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: C1LVertical
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.19
+    sensitivity: 1
+    snap: 1
+    invert: 1
+    type: 2
+    axis: 1
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: C1RHorizontal
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: j
+    altPositiveButton: l
+    gravity: 3
+    dead: 0.19
+    sensitivity: 1
+    snap: 1
+    invert: 0
+    type: 2
+    axis: 2
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: C1RVertical
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: i
+    altPositiveButton: k
+    gravity: 3
+    dead: 0.19
+    sensitivity: 1
+    snap: 1
+    invert: 1
+    type: 2
+    axis: 5
     joyNum: 1
   - serializedVersion: 3
     m_Name: C2LHorizontal
@@ -35,56 +83,8 @@ InputManager:
     snap: 1
     invert: 0
     type: 2
-    axis: 0
-    joyNum: 2
-  - serializedVersion: 3
-    m_Name: C1RHorizontal
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: k
-    altPositiveButton: l
-    gravity: 3
-    dead: 0.19
-    sensitivity: 1
-    snap: 1
-    invert: 0
-    type: 2
-    axis: 2
-    joyNum: 1
-  - serializedVersion: 3
-    m_Name: C2RHorizontal
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: 
-    altPositiveButton: 
-    gravity: 3
-    dead: 0.19
-    sensitivity: 1
-    snap: 1
-    invert: 0
-    type: 2
-    axis: 2
-    joyNum: 2
-  - serializedVersion: 3
-    m_Name: C1LVertical
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
-    altNegativeButton: s
-    altPositiveButton: w
-    gravity: 3
-    dead: 0.19
-    sensitivity: 1
-    snap: 1
-    invert: 1
-    type: 2
     axis: 1
-    joyNum: 1
+    joyNum: 2
   - serializedVersion: 3
     m_Name: C2LVertical
     descriptiveName: 
@@ -102,7 +102,7 @@ InputManager:
     axis: 1
     joyNum: 2
   - serializedVersion: 3
-    m_Name: C1RVertical
+    m_Name: C2RHorizontal
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -113,10 +113,10 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 1
-    invert: 1
+    invert: 0
     type: 2
-    axis: 5
-    joyNum: 1
+    axis: 2
+    joyNum: 2
   - serializedVersion: 3
     m_Name: C2RVertical
     descriptiveName: 
@@ -169,8 +169,8 @@ InputManager:
     m_Name: Throw
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: e
-    positiveButton: 
+    negativeButton: 
+    positiveButton: joystick button 7
     altNegativeButton: 
     altPositiveButton: 
     gravity: 3

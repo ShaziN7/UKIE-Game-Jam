@@ -11,6 +11,9 @@ TagManager:
   - Floor
   - Object
   - Bin
+  - Player1
+  - Mother
+  - Player2
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8694480844109970994}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 10
   m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -100,6 +100,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2114161195943677436, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -109,6 +124,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731563681755360977, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: _speed
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1759930907044921516, guid: a2798b9abc38acf49a5bec98c1a4bc12, type: 3}

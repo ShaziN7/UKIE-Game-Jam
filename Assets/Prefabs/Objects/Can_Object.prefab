@@ -19,21 +19,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4712432508815131171, guid: a2798b9abc38acf49a5bec98c1a4bc12,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4712432508815131171, guid: a2798b9abc38acf49a5bec98c1a4bc12,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: -4712432508815131171, guid: a2798b9abc38acf49a5bec98c1a4bc12,
-        type: 3}
-      propertyPath: m_Drag
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2076946824749777991, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
       propertyPath: m_Name
@@ -94,11 +79,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1936442728134715153, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2114161195943677436, guid: a2798b9abc38acf49a5bec98c1a4bc12,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0bc2dd18c1ec3084888dad3e9e903782, type: 2}
+    - target: {fileID: 6672877716546548452, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731563681755360977, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: _speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -4712432508815131171, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4712432508815131171, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4712432508815131171, guid: a2798b9abc38acf49a5bec98c1a4bc12,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2798b9abc38acf49a5bec98c1a4bc12, type: 3}
 --- !u!1 &8466876935186719533 stripped

@@ -55,11 +55,12 @@ public class SpawnManager : MonoBehaviour
 
                     // Set the position for object to spawn and instantiate a new object
                     //Vector3 positionToSpawn = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
-                    Vector3 positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
+                    Vector3 positionToSpawn = new Vector3(-1.0f, 5.0f, 34.0f);
+                    
                     GameObject canObj = Instantiate(_canObjectPrefab, positionToSpawn, transform.rotation);
 
                     // Set a random velocity
-                    canObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    canObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(10.0f, 20.0f), Random.Range(10.0f, -50.0f));
 
                     canObj.GetComponent<Object>().SetHasSpawned(true);
                     canObj.transform.parent = _objectContainer.transform;
@@ -73,11 +74,11 @@ public class SpawnManager : MonoBehaviour
 
                     // Set the position for object to spawn and instantiate a new object
                     //positionToSpawn = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
-                    positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
+                    positionToSpawn = new Vector3(-1.0f, 5.0f, 34.0f);
                     GameObject glassObj = Instantiate(_glassObjectPrefab, positionToSpawn, transform.rotation);
 
                     // Set a random velocity
-                    glassObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    glassObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(10.0f, 20.0f), Random.Range(10.0f, -50.0f));
 
                     glassObj.GetComponent<Object>().SetHasSpawned(true);
                     glassObj.transform.parent = _objectContainer.transform;
@@ -91,11 +92,11 @@ public class SpawnManager : MonoBehaviour
 
                     // Set the position for object to spawn and instantiate a new object
                     // positionToSpawn = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
-                    positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
+                    positionToSpawn = new Vector3(-1.0f, 5.0f, 34.0f);
                     GameObject paperObj = Instantiate(_paperObjectPrefab, positionToSpawn, transform.rotation);
 
                     // Set a random velocity
-                    paperObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    paperObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(10.0f, 20.0f), Random.Range(10.0f, -50.0f));
 
                     paperObj.GetComponent<Object>().SetHasSpawned(true);
                     paperObj.transform.parent = _objectContainer.transform;
@@ -109,11 +110,11 @@ public class SpawnManager : MonoBehaviour
 
                     // Set the position for object to spawn and instantiate a new object
                     //positionToSpawn = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
-                    positionToSpawn = new Vector3(0.0f, 8.0f, 0.0f);
+                    positionToSpawn = new Vector3(-1.0f, 5.0f, 34.0f);
                     GameObject plasticObj = Instantiate(_plasticObjectPrefab, positionToSpawn, transform.rotation);
 
                     // Set a random velocity
-                    plasticObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-8.0f, 8.0f), 7, Random.Range(-8.0f, 8.0f));
+                    plasticObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(10.0f, 20.0f), Random.Range(10.0f, -50.0f));
 
                     plasticObj.GetComponent<Object>().SetHasSpawned(true);
                     plasticObj.transform.parent = _objectContainer.transform;
