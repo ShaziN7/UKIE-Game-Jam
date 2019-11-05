@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private float _movementSpeed = 10.0f;
     [SerializeField]
     private int _score = 0;
+    [SerializeField]
+    private GameObject particlesystem;
 
     private bool _isHoldingItem = false;
    
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
     {
      
         CalculateMovement();
-        calculateRotation();
+
     }
 
     // Calculate player movement
@@ -61,26 +63,19 @@ public class Player : MonoBehaviour
 
         Vector3 direction = new Vector3(LhorizonalInput, 0, LverticalInput);
 
-
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        //float verticalInput = Input.GetAxis("Vertical");
-
-        //Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
-
         transform.Translate(direction * _movementSpeed * Time.deltaTime, Space.World);
         transform.LookAt(transform.position + new Vector3(LhorizonalInput, 0, LverticalInput), Vector3.up);
-        //transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput), Vector3.up);
+
+        if (LhorizonalInput != 0 || LverticalInput != 0)
+        {
+            particlesystem.SetActive(true);
+        }
+        else
+        {
+            particlesystem.SetActive(false);
+        }
     }
 
-    
-    void calculateRotation()
-    {
-        //float RhorizontalInput = Input.GetAxis(RHorizontal);
-        //float RverticalInput = Input.GetAxis(Rvertical);
-
-        //transform.LookAt(transform.position + new Vector3(RhorizontalInput, 0, RverticalInput), Vector3.up);
-
-    }
     // Updates player score
     public void UpdateScore(int points)
     {

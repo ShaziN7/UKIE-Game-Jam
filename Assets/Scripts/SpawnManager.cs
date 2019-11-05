@@ -13,6 +13,20 @@ public class SpawnManager : MonoBehaviour
     private GameObject _paperObjectPrefab;
     [SerializeField]
     private GameObject _plasticObjectPrefab;
+    [SerializeField]
+    private float x1;
+    [SerializeField]
+    private float x2;
+    [SerializeField]
+    private float y1;
+    [SerializeField]
+    private float y2;
+    [SerializeField]
+    private float z1;
+    [SerializeField]
+    private float z2;
+
+
 
 
     int random = 0;
@@ -60,7 +74,7 @@ public class SpawnManager : MonoBehaviour
                     GameObject canObj = Instantiate(_canObjectPrefab, positionToSpawn, transform.rotation);
 
                     // Set a random velocity
-                    canObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(10.0f, 20.0f), Random.Range(10.0f, -50.0f));
+                    canObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(x1, x2), Random.Range(y1, y2), Random.Range(z1, z2));
 
                     canObj.GetComponent<Object>().SetHasSpawned(true);
                     canObj.transform.parent = _objectContainer.transform;
@@ -78,7 +92,7 @@ public class SpawnManager : MonoBehaviour
                     GameObject glassObj = Instantiate(_glassObjectPrefab, positionToSpawn, transform.rotation);
 
                     // Set a random velocity
-                    glassObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(10.0f, 20.0f), Random.Range(10.0f, -50.0f));
+                    glassObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(x1, x2), Random.Range(y1, y2), Random.Range(z1, z2));
 
                     glassObj.GetComponent<Object>().SetHasSpawned(true);
                     glassObj.transform.parent = _objectContainer.transform;
@@ -96,7 +110,7 @@ public class SpawnManager : MonoBehaviour
                     GameObject paperObj = Instantiate(_paperObjectPrefab, positionToSpawn, transform.rotation);
 
                     // Set a random velocity
-                    paperObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(10.0f, 20.0f), Random.Range(10.0f, -50.0f));
+                    paperObj.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(x1, x2), Random.Range(y1, y2), Random.Range(z1, z2));
 
                     paperObj.GetComponent<Object>().SetHasSpawned(true);
                     paperObj.transform.parent = _objectContainer.transform;
