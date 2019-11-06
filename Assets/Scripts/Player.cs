@@ -50,13 +50,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
-        CalculateMovement();
-
+        CalculateKeyboardMovement();
+        CalculateControllerMovement();
     }
 
+    void CalculateKeyboardMovement()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        Vector3 direction = new Vector3(horizontalInput, 0, verticalInput);
+
+        transform.Translate(direction * _movementSpeed * Time.deltaTime, Space.World);
+
+       
+        transform.LookAt(transform.position + new Vector3(horizontalInput, 0, verticalInput), Vector3.up);
+    }
+
+
     // Calculate player movement
-    void CalculateMovement()
+    void CalculateControllerMovement()
     {
         float LhorizonalInput = Input.GetAxis(LHorizontal);
         float LverticalInput = Input.GetAxis(LVertical);
