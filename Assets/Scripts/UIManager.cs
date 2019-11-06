@@ -12,6 +12,16 @@ public class UIManager : MonoBehaviour
     private Text _timerText;
     [SerializeField]
     private float _timeLeft = 60.0f;
+    [SerializeField]
+    private GameObject redbin;
+    [SerializeField]
+    private GameObject bluebin;
+    [SerializeField]
+    private GameObject greenbin;
+    [SerializeField]
+    private GameObject greybin;
+
+
 
     private GameManager _gameManager; // Reference to the Game Manager
 
